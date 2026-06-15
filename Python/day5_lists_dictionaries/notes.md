@@ -100,11 +100,11 @@ Today I learned how lists store multiple values and dictionaries store key-value
 
 ## Interview Questions
 
-### What is a List?
+### What is a List
 
 A list is an ordered collection used to store multiple items.
 
-### What is a Dictionary?
+### What is a Dictionary
 
 A dictionary stores data in key-value pairs.
 
@@ -114,7 +114,7 @@ A dictionary stores data in key-value pairs.
 |--------|--------|
 | Ordered collection | Key-value collection |
 | Uses indexes | Uses keys |
-| Example: [1,2,3] | Example: {"name":"John"} |
+| Example: [1,2,3] | Example: {"name":"John"}
 
 ---
 
