@@ -44,7 +44,7 @@ git push origin main
 
 ---
 
-# Recover a Deleted File
+## Recover a Deleted File
 
 Find history.
 
