@@ -1,14 +1,12 @@
 # Common Git Mistakes
 
-## Mistake 1
+This document lists common mistakes beginners make while learning Git and how to avoid them.
 
-Running
+---
 
-```powershell
-git init
-```
+# Mistake 1
 
-inside a folder that already belongs to another Git repository.
+## Running `git init` Inside an Existing Repository
 
 ### Wrong
 
@@ -28,37 +26,68 @@ python-learning/
 └── git init ✅
 ```
 
+### Why?
+
+A Git project should normally contain only **one `.git` folder** at its root.
+
+Running `git init` inside a tracked folder creates a nested repository, which Git treats as a submodule.
+
 ---
 
-## Mistake 2
+# Mistake 2
 
-Forgetting to check repository status.
+## Forgetting to Check Repository Status
 
-Always run
+Always check the status before and after making changes.
 
 ```powershell
 git status
 ```
 
-before committing.
+This helps identify:
+
+- Modified files
+- Deleted files
+- Untracked files
+- Staged files
 
 ---
 
-## Mistake 3
+# Mistake 3
 
-Forgetting to stage files.
+## Working Directly on the `main` Branch
+
+❌ Avoid making large changes directly on `main`.
+
+### Better Approach
+
+```powershell
+git switch -c feature-login
+```
+
+Develop your feature in a separate branch, then merge it into `main`.
+
+---
+
+# Mistake 4
+
+## Forgetting to Stage Changes
+
+Git only commits staged files.
 
 ```powershell
 git add .
 ```
 
+Always stage your changes before committing.
+
 ---
 
-## Mistake 4
+# Mistake 5
 
-Writing poor commit messages.
+## Writing Poor Commit Messages
 
-❌ Bad
+### Bad Examples
 
 ```text
 update
@@ -66,79 +95,167 @@ update
 abc
 
 test
+
+changes
 ```
 
-✅ Good
+### Good Examples
 
 ```text
-Add Day 4 Functions
+Add Day 8 merge notes
 
-Fix Login Bug
+Fix login validation bug
 
-Complete Expense Tracker
+Complete expense tracker project
+
+Update README documentation
 ```
+
+Write commit messages that clearly describe your changes.
 
 ---
 
-## Mistake 5
+# Mistake 6
 
-Forgetting to push.
+## Forgetting to Push Changes
+
+Your commits remain only on your local machine until you push them.
 
 ```powershell
 git push origin main
 ```
 
+Push your work regularly to GitHub.
+
 ---
 
-## Mistake 6
+# Mistake 7
 
-Deleting files without checking Git history.
+## Deleting Files Without Checking Git History
 
-Always check
+If a file or folder is accidentally deleted:
 
 ```powershell
 git log --oneline
 ```
 
-before attempting recovery.
+Find the commit where it existed and restore it using:
+
+```powershell
+git checkout <commit-id> -- <path>
+```
 
 ---
 
-## Mistake 7
+# Mistake 8
 
-Ignoring Git error messages.
+## Ignoring Git Error Messages
 
-Read the error carefully.
+Read Git errors carefully.
 
-Most Git errors clearly explain the problem.
-
-Example
+Example:
 
 ```text
 fatal: Pathspec 'Python/day1_variables/*' is in submodule 'Python/day1_variables'
 ```
 
-This tells you the folder is being treated as a submodule.
+This clearly indicates that Git is treating the folder as a submodule.
+
+Understanding the message helps identify the correct solution.
 
 ---
 
-## Mistake 8
+# Mistake 9
 
-Creating multiple `.git` folders.
+## Forgetting to Switch to the Correct Branch
 
-Correct
+Before making changes, check your current branch.
+
+```powershell
+git branch
+```
+
+The current branch is marked with an asterisk (`*`).
+
+Example:
+
+```text
+* feature-login
+  main
+```
+
+---
+
+# Mistake 10
+
+## Merging Untested Code
+
+Always test your feature before merging it into the `main` branch.
+
+Recommended workflow:
+
+```powershell
+git switch main
+
+git merge feature-login
+
+git branch -d feature-login
+```
+
+---
+
+# Mistake 11
+
+## Not Resolving Merge Conflicts Properly
+
+Do not simply delete conflict markers.
+
+Review both versions, choose the correct changes, and then:
+
+```powershell
+git add .
+
+git commit -m "Resolve merge conflict"
+```
+
+---
+
+# Mistake 12
+
+## Deleting a Branch Before Merging
+
+Deleting a branch without merging can result in lost work.
+
+Merge first:
+
+```powershell
+git merge feature-login
+```
+
+Then delete:
+
+```powershell
+git branch -d feature-login
+```
+
+---
+
+# Mistake 13
+
+## Creating Multiple `.git` Folders
+
+### Correct
 
 ```text
 python-learning/
 │
 ├── .git
-│
 ├── Python/
-├── Git/
-└── Projects/
+├── Projects/
+└── Git/
 ```
 
-Wrong
+### Wrong
 
 ```text
 python-learning/
@@ -150,20 +267,32 @@ python-learning/
         └── .git
 ```
 
+A single project should normally contain only one Git repository.
+
 ---
 
 # Golden Rules
 
-✅ One repository = One `.git` folder
+✅ Initialize Git only once at the project root.
 
-✅ Run `git status` often
+✅ Check `git status` frequently.
 
-✅ Commit frequently
+✅ Create a new branch for each feature or bug fix.
 
-✅ Push regularly
+✅ Commit small, meaningful changes.
 
-✅ Use meaningful commit messages
+✅ Write clear commit messages.
 
-✅ Read Git error messages carefully
+✅ Test your code before merging.
 
-✅ Keep your repository organized
+✅ Merge feature branches into `main` only after testing.
+
+✅ Delete feature branches after merging.
+
+✅ Push your changes regularly.
+
+✅ Read Git error messages carefully.
+
+✅ Keep your repository clean and organized.
+
+✅ Maintain one `.git` folder per project.
