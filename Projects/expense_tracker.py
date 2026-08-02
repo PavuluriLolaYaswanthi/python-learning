@@ -1,59 +1,33 @@
-expenses = []
-
 while True:
 
-    print("\n===== Expense Tracker =====")
-    print("1. Add Expense")
+    print("\n1. Add Expense")
     print("2. View Expenses")
-    print("3. View Total Spending")
-    print("4. Exit")
+    print("3. Exit")
 
-    choice = input("Enter your choice: ")
+    choice = input("Enter choice: ")
 
     if choice == "1":
 
-        category = input("Enter Category: ")
-        amount = float(input("Enter Amount: "))
+        category = input("Category: ")
+        amount = input("Amount: ")
 
-        expense = {
-            "category": category,
-            "amount": amount
-        }
+        with open("expenses.txt", "a") as file:
+            file.write(f"{category} - {amount}\n")
 
-        expenses.append(expense)
-
-        print("Expense Added Successfully!")
+        print("Expense Saved!")
 
     elif choice == "2":
 
-        if len(expenses) == 0:
+        try:
+            with open("expenses.txt", "r") as file:
+                print("\nExpenses:")
+                print(file.read())
+
+        except FileNotFoundError:
             print("No expenses found.")
 
-        else:
-            print("\nExpenses List")
-
-            for expense in expenses:
-                print(
-                    "Category:",
-                    expense["category"],
-                    "| Amount:",
-                    expense["amount"]
-                )
-
     elif choice == "3":
-
-        total = 0
-
-        for expense in expenses:
-            total += expense["amount"]
-
-        print("Total Spending =", total)
-
-    elif choice == "4":
-
-        print("Thank You For Using Expense Tracker!")
         break
 
     else:
-
         print("Invalid Choice")
