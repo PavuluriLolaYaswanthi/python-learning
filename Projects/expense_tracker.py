@@ -1,6 +1,7 @@
 while True:
 
-    print("\n1. Add Expense")
+    print("\n===== Expense Tracker =====")
+    print("1. Add Expense")
     print("2. View Expenses")
     print("3. Exit")
 
@@ -9,7 +10,13 @@ while True:
     if choice == "1":
 
         category = input("Category: ")
-        amount = input("Amount: ")
+
+        try:
+            amount = float(input("Amount: "))
+
+        except ValueError:
+            print("Invalid amount. Please enter a number.")
+            continue
 
         with open("expenses.txt", "a") as file:
             file.write(f"{category} - {amount}\n")
@@ -20,14 +27,21 @@ while True:
 
         try:
             with open("expenses.txt", "r") as file:
-                print("\nExpenses:")
-                print(file.read())
+                expenses = file.read()
+
+                if expenses:
+                    print("\nExpenses:")
+                    print(expenses)
+                else:
+                    print("No expenses found.")
 
         except FileNotFoundError:
             print("No expenses found.")
 
     elif choice == "3":
+
+        print("Thank you for using Expense Tracker!")
         break
 
     else:
-        print("Invalid Choice")
+        print("Invalid Choice. Please select 1, 2, or 3.")
