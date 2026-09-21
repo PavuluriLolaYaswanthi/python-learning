@@ -1,19 +1,28 @@
-num1 = float(input("Enter first number: "))
-num2 = float(input("Enter second number: "))
+while True:
+    num1 = float(input("Enter first number: "))
+    operation = input("Choose (+, -, *, /, %, **, sq, exit): ")
 
-operation = input("Choose (+, -, *, /): ")
+    if operation == "exit":
+        print("Goodbye!")
+        break
 
-if operation == "+":
-    print("Result:", num1 + num2)
+    if operation == "sq":
+        print("Result:", num1 ** 2)
+        continue   # skip asking for num2, go straight to next loop
 
-elif operation == "-":
-    print("Result:", num1 - num2)
+    num2 = float(input("Enter second number: "))
 
-elif operation == "*":
-    print("Result:", num1 * num2)
-
-elif operation == "/":
-    print("Result:", num1 / num2)
-
-else:
-    print("Invalid operation")
+    if operation == "+":
+        print("Result:", num1 + num2)
+    elif operation == "-":
+        print("Result:", num1 - num2)
+    elif operation == "*":
+        print("Result:", num1 * num2)
+    elif operation == "/":
+        print("Result:", num1 / num2)
+    elif operation == "%":
+        print("Result:", num1 % num2)
+    elif operation == "**":
+        print("Result:", num1 ** num2)
+    else:
+        print("Invalid operation")

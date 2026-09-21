@@ -8,7 +8,11 @@
 
 ## Practice Done
 
-- Built simple calculator project
+- Built simple calculator project (+, -, *, /)
+- Extended calculator with modulus (%) and power (**)
+- Added a square (sq) option using only one number
+- Wrapped calculator in a while True loop for multiple calculations
+- Used continue to skip the second number for the square operation
 - Practiced taking user input
 - Practiced printing output
 
@@ -19,6 +23,10 @@
 - float() converts to decimal
 - Variables store data
 - print() displays output
+- % gives the remainder of a division
+- ** raises a number to a power
+- while True: keeps a program running until a stop condition is met
+- continue skips the rest of the loop body and jumps to the next iteration
 
 ## Problems Faced
 
@@ -28,7 +36,7 @@
 
 ## What I Learned
 
-Today I learned basic Python fundamentals like variables, input/output, and data types. I understood how user input works and how to convert strings into integers or floats. I also built my first calculator program using if-else conditions and mathematical operators.
+Today I learned basic Python fundamentals like variables, input/output, and data types. I understood how user input works and how to convert strings into integers or floats. I also built my first calculator program using if-else conditions and mathematical operators, then extended it further with modulus, power, a square operation, and a loop so it could handle multiple calculations in one run without restarting.
 
 ## Git Commands Used — Day 1
 

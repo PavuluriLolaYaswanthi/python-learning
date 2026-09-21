@@ -88,6 +88,21 @@ Used to create custom exceptions.
 - Created a custom exception with raise
 - Updated Expense Tracker to validate amount input
 
+## Quick recap
+
+try:
+    # risky code
+except ValueError:
+    # runs only if a ValueError happens
+except ZeroDivisionError:
+    # runs only if dividing by zero
+except Exception as e:
+    # catches anything else; e holds the error message
+else:
+    # runs only if NO exception occurred
+finally:
+    # always runs, error or not
+
 ---
 
 ## Problems Faced

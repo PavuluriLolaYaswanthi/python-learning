@@ -64,6 +64,10 @@ git pull origin main --allow-unrelated-histories
 # Type:
 :wq
 # Press ENTER
+# : - command mode
+# w - save
+# q - quit
+
 
 # STEP 11 — Push code to GitHub
 git push -u origin main
