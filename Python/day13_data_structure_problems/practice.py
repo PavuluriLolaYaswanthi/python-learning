@@ -114,4 +114,154 @@ for name, mark in marks.items():
     if mark > highest_marks:
         highest_marks = mark
         highest_name = name
-print("Student with highest marks:", highest_name, "with marks:", highest_marks)
+print(highest_name)
+print(highest_marks)
+
+# students with lowest marks
+
+marks = {"Alice": 90, "Bob": 55, "Charlie": 80, "David": 45}
+lowest_marks = float("inf")   # infinity: bigger than any real mark
+lowest_name = None
+for name, mark in marks.items():
+    if mark < lowest_marks:
+        lowest_marks = mark
+        lowest_name = name
+print(lowest_name)
+print(lowest_marks)
+
+# problem 12 : calculate average marks of students
+
+marks = {"Alice": 90, "Bob": 55, "Charlie": 80, "David": 45}
+total_marks = 0
+for mark in marks.values():
+    total_marks += mark
+    average_marks = total_marks / len(marks)
+print("Average marks of students:", average_marks)
+
+# problem 13: filter the passed students from the dictionary
+
+marks = {"Alice": 85,"Bob": 45,"Charlie": 75,"David": 30}
+passed_students = {name: mark for name, mark in marks.items() if mark >= 50}
+print("Passed students:", passed_students)
+
+# problem 14: count word frequency
+
+words = {
+    "Food": 500,
+    "Travel": 1500,
+    "Shopping": 3000,
+    "Bills": 800
+}
+
+word_frequency = {}
+for word in words:
+    if word in word_frequency:
+        word_frequency[word] += 1
+    else:
+        word_frequency[word] = 1
+print("Word frequency:", word_frequency)
+
+# problem 15: find expensive expenses
+
+expenses = {
+    "Food": 500,
+    "Travel": 1500,
+    "Shopping": 3000,
+    "Bills": 800
+}
+expensive_expenses = {category: amount for category, amount in expenses.items() if amount > 1000}
+print("Expensive expenses:", expensive_expenses)
+
+# problem 16: second largest number in a list
+
+numbers = [10, 25, 7, 40, 15]
+largest = 0
+second_largest = None
+for number in numbers:
+    if number > largest:
+        second_largest = largest
+        largest = number
+    elif number != largest:
+        if second_largest is None or number > second_largest:
+            second_largest = number
+print("The second largest number is:", second_largest)
+
+# second smallest number in a list
+
+numbers = [10, 25, 7, 40, 15]
+smallest = numbers[0]
+second_smallest = None
+for number in numbers:
+    if number < smallest:
+        second_smallest = smallest
+        smallest = number
+    elif number != smallest:
+        if second_smallest is None or number < second_smallest:
+            second_smallest = number
+print("The second smallest number is:", second_smallest)
+
+# problem 17: Common elements in two lists
+
+list1 = [1, 2, 3, 4, 5]
+list2 = [3, 4, 5, 6, 7]
+common_elements = []
+for number in list1:
+    if number in list2:
+        common_elements.append(number)
+print("Common elements in the two lists:", common_elements)
+
+# unique elements in two lists
+
+unique_elements = []
+for number in list1:
+    if number not in list2:
+        unique_elements.append(number)
+for number in list2:
+    if number not in list1:
+        unique_elements.append(number)
+print("Unique elements in the two lists:", unique_elements)
+
+# problem 18: separate even and odd numbers in a list
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+even_numbers = []
+odd_numbers = []
+for number in numbers:
+    if number % 2 == 0:
+        even_numbers.append(number)
+    else:
+        odd_numbers.append(number)
+print("Even numbers:", even_numbers)
+print("Odd numbers:", odd_numbers)
+
+# problem 19: word length in dictionary
+
+words = ["apple", "banana", "cherry", "date"]
+word_length = {word: len(word) for word in words}
+print("Word length in dictionary:", word_length)
+
+# sort a list of dictionaries by a key
+
+students = [
+    {"name": "Alice", "age": 20},
+    {"name": "Bob", "age": 18},
+    {"name": "Charlie", "age": 22}
+]
+students_sorted = sorted(students, key=lambda x: x["age"])
+print("Students sorted by age:", students_sorted)
+
+# problem 20: Mini Expense Analysis
+
+expenses = [
+    {"category": "Food", "amount": 500},
+    {"category": "Travel", "amount": 1200},
+    {"category": "Food", "amount": 300},
+    {"category": "Shopping", "amount": 2000}
+]
+total = 0
+food_total = 0
+for expense in expenses:
+    total += expense["amount"]
+    if expense["category"] == "Food":
+        food_total += expense["amount"]
+print("Total expenses:", total)
+print("Total food expenses:", food_total)
