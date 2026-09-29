@@ -17,3 +17,18 @@ def calculate_total(expenses):
             except ValueError:
                 pass
     return total
+def calculate_category_totals(expenses):
+    category_totals = {}
+    for line in expenses.splitlines():
+        if " - " in line:
+            category, amount = line.split(" - ", 1)
+            try:
+                amount = float(amount)
+                if category in category_totals:
+                    category_totals[category] += amount
+                else:
+                    category_totals[category] = amount
+            except ValueError:
+                pass
+    return category_totals
+
