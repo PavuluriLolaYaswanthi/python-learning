@@ -10,7 +10,7 @@ while True:
     print("4. View Category-wise Summary")
     print("5. Exit")
 
-    choice = input("Enter choice: ")
+    choice = input("Enter choice: ").strip().title()
 
     if choice == "1":
 
