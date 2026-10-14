@@ -61,7 +61,7 @@ print(numbers[2])
 print(numbers[-1])
 ```
 
-### Output
+### Output1
 
 ```text
 10
@@ -84,7 +84,7 @@ numbers = (10, 20, 30, 40, 50)
 print(numbers[1:4])
 ```
 
-### Output
+### Output2
 
 ```text
 (20, 30, 40)
@@ -134,7 +134,7 @@ Output:
 
 A set is a collection of **unique elements**. It automatically removes duplicate values.
 
-### Example
+### Example1
 
 ```python
 numbers = {10, 20, 10, 30, 20}
@@ -144,7 +144,7 @@ print(numbers)
 
 The set contains only `10`, `20`, and `30`. The order of elements is not guaranteed.
 
-### Important points
+### Important points0
 
 * Sets are written using curly braces `{}` with elements inside.
 * Sets do not allow duplicate elements.
@@ -231,7 +231,7 @@ unique_numbers = list(dict.fromkeys(numbers))
 print(unique_numbers)
 ```
 
-### Output
+### Output3
 
 ```text
 [10, 20, 30, 40]
